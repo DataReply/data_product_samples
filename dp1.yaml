@@ -1,12 +1,21 @@
-data_product_name: Gaia_Vehicle_DP  # This will be the Gold Lakehouse
-#domain_name: Gaia
-#source_lakehouse: PRODUCER_STORAGE_LAKEHOUSE # The Bronze Lakehouse
+data_product_name: Gaia_Vehicle_DP
+description: "This data product provides refined holiday information for the Gaia domain."
+owners:
+  - extern.pardeep.naik@volkswagen.de
 
 views:
-  - name: ireland_holidays
+  - name: canada_holidays_1
+    description: "Filtered public holidays for Canada only."
+    columns:
+      - name: countryOrRegion
+        type: "VARCHAR(100)"
+        description: "The name of the country or region."
+      - name: date
+        type: "DATE"
+        description: "The calendar date of the holiday."
     definitionQuery: |
-      SELECT TOP (10)
+      SELECT 
         countryOrRegion,
         date
       FROM [Gaia_Base_Tables].[dbo].[publicholidays]
-      WHERE countryOrRegion = 'Ireland'
+      WHERE countryOrRegion = 'Canada'
