@@ -5,7 +5,7 @@ data_product_name: Gaia_Vehicle_DP  # This will be the Gold Lakehouse
 views:
   - name: australia_holidays
     definitionQuery: |
-      SELECT 
+      SELECT TOP (20)
         countryOrRegion,
         date
       FROM [Gaia_Base_Tables].[dbo].[publicholidays]
