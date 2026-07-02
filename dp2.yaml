@@ -3,10 +3,10 @@ data_product_name: Gaia_Vehicle_DP  # This will be the Gold Lakehouse
 #source_lakehouse: PRODUCER_STORAGE_LAKEHOUSE # The Bronze Lakehouse
 
 views:
-  - name: ireland_holidays
+  - name: australia_holidays
     definitionQuery: |
       SELECT 
         countryOrRegion,
         date
       FROM [Gaia_Base_Tables].[dbo].[publicholidays]
-      WHERE countryOrRegion = 'Ireland'
+      WHERE countryOrRegion = 'Australia'
