@@ -12,7 +12,7 @@ views:
         description: "The name of the country or region."
       - name: holidayName
         type: "VARCHAR(100)"
-        description: "The name of the holiday.""
+        description: "The name of the holiday."
       - name: date
         type: "DATE"
         description: "The calendar date of the holiday."
