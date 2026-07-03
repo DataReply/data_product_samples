@@ -1,0 +1,33 @@
+data_product_name: Holidays_Data_Products
+description: "This data product provides refined holiday information for the holidays domain."
+owners:
+  - extern.pardeep.naik@volkswagen.de
+
+views:
+  - name: Ireland_holidays
+    description: "Filtered public holidays for Ireland only."
+    columns:
+      - name: countryOrRegion
+        type: "VARCHAR(100)"
+        description: "The name of the country or region."
+      - name: holidayName
+        type: "VARCHAR(100)"
+        description: "The name of the holiday.""
+      - name: date
+        type: "DATE"
+        description: "The calendar date of the holiday."
+    definitionQuery: |
+      SELECT TOP (50)
+        countryOrRegion,
+        holidayName,
+        date
+      FROM [Holidays_Base_tables].[dbo].[publicholidays]
+      WHERE countryOrRegion = 'Ireland'
+  - name: Australia_holidays
+    definitionQuery: |
+      SELECT TOP (20)
+        countryOrRegion,
+        holidayName,
+        date
+      FROM [Holidays_Base_tables].[dbo].[publicholidays]
+      WHERE countryOrRegion = 'Australia'
