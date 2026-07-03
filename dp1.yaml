@@ -4,7 +4,7 @@ owners:
   - extern.pardeep.naik@volkswagen.de
 
 views:
-  - name: canada_holidays_1
+  - name: UK_holidays
     description: "Filtered public holidays for Canada only."
     columns:
       - name: countryOrRegion
@@ -14,8 +14,15 @@ views:
         type: "DATE"
         description: "The calendar date of the holiday."
     definitionQuery: |
-      SELECT 
+      SELECT TOP (50)
         countryOrRegion,
         date
       FROM [Gaia_Base_Tables].[dbo].[publicholidays]
-      WHERE countryOrRegion = 'Canada'
+      WHERE countryOrRegion = 'United Kingdom'
+  - name: US_holidays
+    definitionQuery: |
+      SELECT TOP (20)
+        countryOrRegion,
+        date
+      FROM [Gaia_Base_Tables].[dbo].[publicholidays]
+      WHERE countryOrRegion = 'United States'
